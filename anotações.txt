@@ -1,0 +1,5 @@
+composer require livewire/livewire -> colocar o livewire no projeto
+
+php artisan livewire:layout -> cria um layout de livewire
+
+php artisan make:livewire tarefa.Index -> cria um componente
