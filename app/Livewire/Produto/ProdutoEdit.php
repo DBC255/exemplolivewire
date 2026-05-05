@@ -26,6 +26,24 @@ class ProdutoEdit extends Component
         $this-> qtd_minima = $produto->qtd_minima;
     }
 
+    public function update(){
+        $produto = Produto::find($this -> produtoID);
+
+        if($produto == null){
+            session()->flash('erro', 'produto não encontrado');
+        }
+        
+        $produto->nome = $this->nome;
+        $produto->valor = $this->valor;
+        $produto->qtd_estoque = $this->qtd_estoque;
+        $produto->qtd_minima = $this->qtd_minima;
+
+        $produto->save();
+
+        session()->flash('success', 'produto atualizado');
+        return redirect()->route('produto.index');
+    }
+
     public function render()
     {
         return view('livewire.produto.produto-edit');
