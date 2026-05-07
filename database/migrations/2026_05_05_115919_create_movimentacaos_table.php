@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('movimentacaos', function (Blueprint $table) {
             $table->id();
             $table->integer('quantidade');
-            $table->date('data_mavimentacao');
+            $table->date('data_movimentacao');
             $table->enum('tipo', ['entrada','saida']);
             //coluna produto_id que faz referencia com a tabela produtos com campo id
             $table->foreignId('produto_id')->constrained();

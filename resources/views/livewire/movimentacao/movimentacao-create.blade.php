@@ -43,8 +43,8 @@
                             <div class='mb-3'>
                                 <label class="form-label" for="">tipo</label>
                                 <select name="" class="form-select " id="" wire:model='tipo'>
-                                    <option class="form-select" value="">entrada</option>
-                                    <option class="form-select" value="">saida</option>
+                                    <option class="form-select" value="entrada">entrada</option>
+                                    <option class="form-select" value="saida">saida</option>
                                 </select>
                                 @error('tipo')
                                     <span class="text-danger">{{ $mensagem }}</span>
@@ -55,8 +55,8 @@
                         <div class="col-md-3">
                             <div class='mb-3'>
                                 <label class="" for="">quantidade</label>
-                                <input type="number" class="form-control" wire:model='quantidade'>
-                                @error('quantidde')
+                                <input type="number" class="form-control" wire:model='quantidade_movimentada'>
+                                @error('quantidade_movimentada')
                                     <span class="text-danger">{{ $mensagem }}</span>
                                 @enderror
                             </div>
@@ -66,7 +66,7 @@
                             <div class='mb-3'>
                                 <label  for="">data</label>
                                 <input type="date" class="form-control" wire:model='data_movimentacao'>
-                                @error('tipo')
+                                @error('data')
                                     <span class="text-danger">{{ $mensagem }}</span>
                                 @enderror
                             </div>
