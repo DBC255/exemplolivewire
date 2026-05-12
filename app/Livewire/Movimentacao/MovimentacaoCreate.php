@@ -14,6 +14,11 @@ class MovimentacaoCreate extends Component
     public $quantidade_movimentada;
     public $data_movimentacao;
     public $alertaEstoqueBaixo;
+    protected $rules =[
+        'quantidade_movimentada' => 'required',
+        'data_movimentacao' => 'required',
+        'produtos' => 'required',
+    ];
 
     public function mount(){
         $this->produtos = Produto::orderBy('nome')->get();

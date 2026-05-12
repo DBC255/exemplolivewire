@@ -20,11 +20,16 @@
                             @foreach ($movimentacoes as $movimentacao)
                                 <tr>
                                     <td>{{ $movimentacao->quantidade }}</td>
-                                    <td>{{ $movimentacao->data_movimentacao, 2, ',', '.' }}</td>
-                                    <td>{{ $movimentacao->tipo }}</td>
-                                    <td>{{ $movimentacao->produto_id }}</td>
-                                    <td>{{ $movimentacao->user_id }}</td>
-                                    <td><button type="button" class="btn btn-sm btn-danger">deletar</button></td>
+                                    <td>{{ \Carbon\Carbon::parse($movimentacao->data_movimentacao)->format('d/m/Y') }}</td>
+                                    <td> @if($movimentacao->tipo =='entrada')
+                                        <span class="badge bg-primary">Entrada</span>  
+                                        @else
+                                        <span class="badge bg-danger">Saida</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $movimentacao->produto->nome }}</td>
+                                    <td>{{ $movimentacao->user->name }}</td>
+                                    <td><button type="button" wire:click='delete({{ $movimentacao->id }})' class="btn btn-sm btn-danger">deletar</button></td>
                                 </tr>
                             @endforeach
                         </tbody>
